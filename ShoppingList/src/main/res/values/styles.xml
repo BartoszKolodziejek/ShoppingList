@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.App.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorAccent">#d32f2f</item>
-        <item name="colorControlNormal">#ff5722</item>
-        <item name="colorControlHighlight">#f44336</item>
-        <item name="editTextColor">#000000</item>
-    </style>
-</resources>
