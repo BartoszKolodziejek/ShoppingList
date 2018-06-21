@@ -3,7 +3,7 @@
     package="com.example.bartoszkolodziejek.shoppinglist.ShoppingList">
 
     <application>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter android:order="1">
                 <action android:name="android.intent.action.VIEW" />
 

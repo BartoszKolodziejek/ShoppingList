@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="EditText" parent="Widget.AppCompat.EditText">
-        <item name="colorAccent">#000000</item>
-        <item name="android:colorPrimary">#000000</item>
-        <item name="android:colorControlHighlight">#000000</item>
-        <item name="android:editTextColor">#000000</item>
+    <style name="AppTheme"  parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+        <item name="editTextColor">@color/editTextColor</item>
+
+
     </style>
+
+    <style name="editText">
+        <item name="android:textColor">@color/editTextColor</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="listView">
+        <item name="android:textColor">@color/editTextColor</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:background">@color/listColor</item>
+    </style>
+
+
 </resources>

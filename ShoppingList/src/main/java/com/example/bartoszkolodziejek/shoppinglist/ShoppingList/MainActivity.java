@@ -11,8 +11,15 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
+import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.adapters.DateAndNameAdapter;
+
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +27,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+
         setContentView(R.layout.activity_main);
 
     }
+
+
 
 
     @Override
@@ -30,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         ListView listOfLists = (ListView) findViewById(R.id.list_item);
         TextView textView = new TextView(this);
-        listOfLists.setAdapter(new ArrayAdapter<String> (this, R.layout.row, new ArrayList<String>()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+        listOfLists.setAdapter(new DateAndNameAdapter<String>(this, new ArrayList<String>(), dateFormat));
 
     }
 

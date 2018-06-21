@@ -11,7 +11,7 @@
       android:topLeftRadius="10dp"
       android:topRightRadius="10dp"/>
 
-  <gradient android:startColor="@color/colorPrimaryDark"
+  <gradient android:startColor="#000000"
       android:endColor="@color/colorPrimary">
 
   </gradient>
