@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.adapters.DateAndNameAdapter;
+import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.helpers.DatabaseHelper;
 
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -24,6 +25,8 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
 
+    DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         setContentView(R.layout.activity_main);
+        databaseHelper = new DatabaseHelper(this);
+
 
     }
 
