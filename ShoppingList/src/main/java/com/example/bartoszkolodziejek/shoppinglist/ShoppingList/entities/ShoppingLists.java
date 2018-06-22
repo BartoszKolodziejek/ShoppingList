@@ -1,9 +1,12 @@
 package com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities;
 
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.annotaitions.Column;
+import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.annotaitions.Entity;
 
 import java.util.Date;
 
+
+@Entity
 public class ShoppingLists {
     @Column
     private Integer id;

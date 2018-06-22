@@ -1,39 +1,38 @@
 package com.example.bartoszkolodziejek.shoppinglist.ShoppingList;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.support.v7.widget.Toolbar;
 
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.adapters.DateAndNameAdapter;
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.helpers.DatabaseHelper;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    DatabaseHelper databaseHelper;
+    private DatabaseHelper databaseHelper;
+    private static Context context;
+    public static Context getContext(){
+        return context;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
-
         setContentView(R.layout.activity_main);
+        context = this;
         databaseHelper = new DatabaseHelper(this);
 
 
