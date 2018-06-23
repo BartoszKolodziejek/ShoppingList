@@ -22,5 +22,5 @@ dependencies {
     api 'com.android.support.constraint:constraint-layout:1.1.2'
     application project(':app')
     feature project(':ShoppingList')
-    api 'org.reflections:reflections:0.9.11'
+    api 'com.github.satyan:sugar:1.5'
 }

@@ -1,6 +1,5 @@
 package com.example.bartoszkolodziejek.shoppinglist.ShoppingList;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,19 +11,23 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.adapters.DateAndNameAdapter;
-import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.helpers.DatabaseHelper;
+import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities.ShoppingLists;
+import com.orm.SchemaGenerator;
+import com.orm.SugarContext;
+import com.orm.SugarDb;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private DatabaseHelper databaseHelper;
-    private static Context context;
-    public static Context getContext(){
-        return context;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
         setContentView(R.layout.activity_main);
-        context = this;
-        databaseHelper = new DatabaseHelper(this);
+        SugarContext.init(getApplicationContext());
+        SchemaGenerator schemaGenerator = new SchemaGenerator(this);
+        schemaGenerator.createDatabase(new SugarDb(this).getDB());
+
 
 
     }
@@ -47,7 +52,13 @@ public class MainActivity extends AppCompatActivity {
         ListView listOfLists = (ListView) findViewById(R.id.list_item);
         TextView textView = new TextView(this);
         SimpleDateFormat dateFormat = new SimpleDateFormat();
-        listOfLists.setAdapter(new DateAndNameAdapter<String>(this, new ArrayList<String>(), dateFormat));
+        List<ShoppingLists> shoppingLists = ShoppingLists.listAll(ShoppingLists.class);
+        Map<Date, Object> shoppingListsMap = new HashMap<>();
+        for (ShoppingLists shoppingList : shoppingLists){
+            shoppingListsMap.put(shoppingList.getDate(), shoppingList);
+        }
+
+        listOfLists.setAdapter(new DateAndNameAdapter<ShoppingLists>(this, shoppingListsMap, dateFormat));
 
     }
 
@@ -56,9 +67,12 @@ public class MainActivity extends AppCompatActivity {
         EditText listNameField = (EditText) findViewById(R.id.list_name);
         String name = listNameField.getText().toString();
         listNameField.getText().clear();
-        ArrayAdapter<String> listAdapter = (ArrayAdapter<String>) listOfLists.getAdapter();
+        DateAndNameAdapter<ShoppingLists> listAdapter = (DateAndNameAdapter<ShoppingLists>) listOfLists.getAdapter();
 
-        listAdapter.add(name);
+
+        ShoppingLists shoppingLists = new ShoppingLists(name, new Date());
+        listAdapter.add(shoppingLists);
+        shoppingLists.save();
 
 
 

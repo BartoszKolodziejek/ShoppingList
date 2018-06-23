@@ -1,18 +1,21 @@
 package com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities;
 
-import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.annotaitions.Column;
-import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.annotaitions.Entity;
+
+
+
+
+import com.orm.SugarRecord;
 
 import java.util.Date;
+import java.util.Objects;
 
 
-@Entity
-public class ShoppingLists {
-    @Column
-    private Integer id;
-    @Column
+public class ShoppingLists  extends SugarRecord {
+
+
+
     private String name;
-    @Column
+
     private Date date;
 
     public String getName() {
@@ -23,12 +26,37 @@ public class ShoppingLists {
         return date;
     }
 
-    public Integer getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public ShoppingLists(){}
     public ShoppingLists(String name, Date date) {
         this.name = name;
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShoppingLists)) return false;
+        ShoppingLists that = (ShoppingLists) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(date, that.date);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name, date);
     }
 }
