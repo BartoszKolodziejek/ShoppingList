@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/chooseItemColor"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="200dp"
+        android:id="@+id/collapse"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/dropDown"
+        android:spinnerMode="dropdown"
+        android:id="@+id/products"
+        android:layout_marginTop="20dp">
+    </Spinner>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/unitView"
+        android:visibility="gone">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:text="@string/unit"
+        style="@style/popUpWindow"
+        android:textAllCaps="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/unit"
+        android:id="@+id/unit"
+        android:layout_marginLeft="50dp"
+        style="@style/popUpWindow"
+        android:textAllCaps="true"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/amountView"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amount"
+            style="@style/popUpWindow"
+            android:textAllCaps="true"/>
+      <EditText
+          android:layout_width="100dp"
+          android:layout_height="50dp"
+          android:background="@color/colorPrimary"
+          android:id="@+id/amount"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/accept"
+        android:id="@+id/accept"
+        style="@style/popUpWindow"/>
+
+</LinearLayout>

@@ -5,4 +5,5 @@
     <color name="editTextColor">#FFFFFF</color>
     <color name="colorPrimary">#000000</color>
     <color name="listColor">#2d2d2d</color>
+    <color name="chooseItemColor">#1d1d1d</color>
 </resources>

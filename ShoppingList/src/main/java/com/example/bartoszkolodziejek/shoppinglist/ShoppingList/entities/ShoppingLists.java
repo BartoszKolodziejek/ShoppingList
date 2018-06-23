@@ -4,19 +4,32 @@ package com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities;
 
 
 
+import android.os.Parcel;
+
 import com.orm.SugarRecord;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 
-public class ShoppingLists  extends SugarRecord {
+public class ShoppingLists  extends SugarRecord   implements Serializable {
 
 
-
+    private List<ProductsList> productsLists;
     private String name;
 
     private Date date;
+
+    public List<ProductsList> getProductsLists() {
+        return productsLists;
+    }
+
+    public void setProductsLists(List<ProductsList> productsLists) {
+        this.productsLists = productsLists;
+    }
 
     public String getName() {
         return name;
@@ -38,6 +51,8 @@ public class ShoppingLists  extends SugarRecord {
     public ShoppingLists(String name, Date date) {
         this.name = name;
         this.date = date;
+        this.productsLists = new ArrayList<>();
+
     }
 
     @Override
@@ -57,6 +72,8 @@ public class ShoppingLists  extends SugarRecord {
     @Override
     public int hashCode() {
 
-        return Objects.hash(name, date);
+        return Objects.hash(name)*17 + Objects.hashCode(date)*11;
     }
+
+
 }

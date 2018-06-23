@@ -1,3 +1,14 @@
 <resources>
     <string name="add_list_hint">Name of the list</string>
+    <string name="deleteList">Are you sure to delete this list?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="unit">unit</string>
+    <string name="addItem">Add item</string>
+    <string name="amount">amount</string>
+    <string name="accept">accept</string>
+    <string name="selectItem">select item</string>
+    <string name="product">product</string>
+    <string name="name">name</string>
+    <string name="photo">photo</string>
 </resources>
