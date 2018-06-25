@@ -18,6 +18,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
             <intent-filter android:order="1">
                 <action android:name="android.intent.action.VIEW" />
 
@@ -29,6 +30,7 @@
                     android:pathPattern="/.*"
                     android:scheme="https" />
             </intent-filter>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,6 +50,7 @@
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.example.bartoszkolodziejek.shoppinglist.ShoppingList" />
+
 
         <activity android:name=".ListActivity">
             <intent-filter android:order="1">

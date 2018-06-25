@@ -44,7 +44,8 @@
         android:theme="@style/listView"
         tools:layout_editor_absoluteX="332dp"
         android:layout_marginTop="50dp"
-        tools:layout_editor_absoluteY="566dp" />
+        tools:layout_editor_absoluteY="566dp"
+        />
 
 
     <ImageView

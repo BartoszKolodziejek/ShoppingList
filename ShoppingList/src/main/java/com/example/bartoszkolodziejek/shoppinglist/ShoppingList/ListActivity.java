@@ -23,6 +23,7 @@ import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.adapters.Product
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities.Product;
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities.ProductsList;
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities.ShoppingLists;
+import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.listeners.LongClickListListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,6 +45,8 @@ public class ListActivity extends AppCompatActivity {
         List<ProductsList> productsLists = ProductsList.find(ProductsList.class, "SHOPPING_LISTS = "+list.getId());
         adapter = new ProductInListAdapter<ProductsList>(this, productsLists);
         listView.setAdapter(adapter);
+        listView.setOnItemLongClickListener(new LongClickListListener(listView, getApplicationContext()));
+        listView.setItemsCanFocus(true);
 
     }
 

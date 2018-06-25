@@ -37,6 +37,10 @@ public class ProductsList extends SugarRecord implements Serializable {
         return value;
     }
 
+    public void setRealised(Boolean realised) {
+        this.realised = realised;
+    }
+
     public ShoppingLists getShoppingLists() {
         return shoppingLists;
     }

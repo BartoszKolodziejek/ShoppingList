@@ -32,4 +32,9 @@ public class Product extends SugarRecord implements Serializable {
     public Product(){
 
     }
+
+    @Override
+    public String toString() {
+        return  name ;
+    }
 }

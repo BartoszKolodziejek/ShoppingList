@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.R;
@@ -42,7 +43,7 @@ public class ProductInListAdapter<T> extends ArrayAdapter {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.shopping_list_row, parent, false);
@@ -53,7 +54,14 @@ public class ProductInListAdapter<T> extends ArrayAdapter {
         name.setText(values.get(position).getProduct().getName());
         unit.setText(values.get(position).getProduct().getUnit());
         amount.setText(values.get(position).getValue().toString());
-        checkBox.setActivated(values.get(position).getRealised());
+        checkBox.setChecked(values.get(position).getRealised());
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                values.get(position).setRealised(b);
+                values.get(position).save();
+            }
+        });
 
 
 

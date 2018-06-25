@@ -15,6 +15,12 @@
     <string name="product_validation">Some of the fields are empty, or name is used</string>
     <string name="product_saved">Product saved successfully</string>
     <string name="amountValidation">You added wrong amount</string>
+    <string name="items">items</string>
+    <string name="new_list">new</string>
+    <string name="partly">partly realised</string>
+    <string name="realised">realised</string>
+    <string name="status">status</string>
+    <string name="deleteItem">Do you want to delete the item?</string>
 
     <string-array name="units">
         <item name="kilos">kg</item>

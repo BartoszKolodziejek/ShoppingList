@@ -55,6 +55,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
     @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+        final ListView listOfLists = (ListView) findViewById(R.id.list_item);
+        TextView textView = new TextView(this);
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+        List<ShoppingLists> shoppingLists = ShoppingLists.listAll(ShoppingLists.class, "id");
+        Map<Date, Object> shoppingListsMap = new HashMap<>();
+        for (ShoppingLists shoppingList : shoppingLists){
+            shoppingListsMap.put(shoppingList.getDate(), shoppingList);
+        }
+        listOfLists.setAdapter(new DateAndNameAdapter<ShoppingLists>(this, shoppingListsMap, dateFormat));
+        final LongClickListOfListsListener longClickListOfListsListener = new LongClickListOfListsListener(listOfLists, getApplicationContext());
+        listOfLists.setOnItemLongClickListener(longClickListOfListsListener);
+        listOfLists.setOnItemClickListener(new ClickListOfListListener(getApplicationContext(), longClickListOfListsListener, this, listOfLists));
+    }
+
+    @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         final ListView listOfLists = (ListView) findViewById(R.id.list_item);

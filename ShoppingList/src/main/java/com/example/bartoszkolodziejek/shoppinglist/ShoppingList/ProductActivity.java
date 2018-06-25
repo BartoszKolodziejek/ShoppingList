@@ -177,4 +177,16 @@ public class ProductActivity extends AppCompatActivity {
 
         return true && (webView.getUrl()!=null || !webView.getUrl().equals(""));
     }
+
+    public void search(View view){
+        onSearchRequested();
+    }
+
+    @Override
+    public boolean onSearchRequested() {
+        Bundle appData = new Bundle();
+        appData.putBoolean(SEARCH_SERVICE, true);
+        startSearch(null, false, appData, false);
+        return true;
+    }
 }
