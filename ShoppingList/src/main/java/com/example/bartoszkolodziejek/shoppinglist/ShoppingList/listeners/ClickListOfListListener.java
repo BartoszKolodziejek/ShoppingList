@@ -31,7 +31,7 @@ public class ClickListOfListListener implements AdapterView.OnItemClickListener 
         Intent list = new Intent(context, ListActivity.class);
         final Bundle bundle = new Bundle();
         ShoppingLists shoppingList = (ShoppingLists) ((DateAndNameAdapter) listView.getAdapter()).getItem(i);
-        list.putExtra("list", shoppingList);
+        list.putExtra("id", shoppingList.getId());
         if(longClickListOfListsListener.isIntentAcceptable())
             appCompatActivity.startActivity(list);
     }

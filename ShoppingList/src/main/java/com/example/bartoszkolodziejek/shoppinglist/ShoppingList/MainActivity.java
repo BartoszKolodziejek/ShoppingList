@@ -4,20 +4,24 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.adapters.DateAndNameAdapter;
+import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities.Product;
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities.ShoppingLists;
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.listeners.ClickListOfListListener;
 import com.example.bartoszkolodziejek.shoppinglist.ShoppingList.listeners.LongClickListOfListsListener;
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         final ListView listOfLists = (ListView) findViewById(R.id.list_item);
         TextView textView = new TextView(this);
         SimpleDateFormat dateFormat = new SimpleDateFormat();
-        List<ShoppingLists> shoppingLists = ShoppingLists.listAll(ShoppingLists.class);
+        List<ShoppingLists> shoppingLists = ShoppingLists.listAll(ShoppingLists.class, "id");
         Map<Date, Object> shoppingListsMap = new HashMap<>();
         for (ShoppingLists shoppingList : shoppingLists){
             shoppingListsMap.put(shoppingList.getDate(), shoppingList);
@@ -83,4 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }

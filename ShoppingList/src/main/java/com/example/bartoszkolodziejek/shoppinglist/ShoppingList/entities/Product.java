@@ -1,10 +1,11 @@
 package com.example.bartoszkolodziejek.shoppinglist.ShoppingList.entities;
 
 import com.orm.SugarRecord;
+import com.orm.dsl.Table;
 import com.orm.dsl.Unique;
 
 import java.io.Serializable;
-
+@Table
 public class Product extends SugarRecord implements Serializable {
     @Unique
     private String name;

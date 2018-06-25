@@ -11,4 +11,14 @@
     <string name="product">product</string>
     <string name="name">name</string>
     <string name="photo">photo</string>
+    <string name="add_url_hint">Add url to photo</string>
+    <string name="product_validation">Some of the fields are empty, or name is used</string>
+    <string name="product_saved">Product saved successfully</string>
+    <string name="amountValidation">You added wrong amount</string>
+
+    <string-array name="units">
+        <item name="kilos">kg</item>
+        <item name="mililiters">ml</item>
+        <item name="pieces">pc</item>
+    </string-array>
 </resources>

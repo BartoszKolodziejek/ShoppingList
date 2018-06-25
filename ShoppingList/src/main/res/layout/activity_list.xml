@@ -43,6 +43,7 @@
         android:layout_height="match_parent"
         android:theme="@style/listView"
         tools:layout_editor_absoluteX="332dp"
+        android:layout_marginTop="50dp"
         tools:layout_editor_absoluteY="566dp" />
 
 

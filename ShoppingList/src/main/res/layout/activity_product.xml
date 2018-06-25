@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,10 @@
     tools:context=".ProductActivity"
     android:orientation="vertical"
     style="@style/listView">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -51,7 +54,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:textColor="@color/editTextColor"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:id="@+id/name"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -66,44 +70,67 @@
                 android:textSize="40sp" />
 
             <Spinner
-                android:id="@+id/products"
+                android:id="@+id/unit"
                 style="@style/dropDown"
                 android:layout_width="200dp"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="right"
-                android:spinnerMode="dropdown"></Spinner>
-        </RelativeLayout>
+                android:spinnerMode="dropdown">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false">
-
-            <TextView
-                style="@style/listView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/photo"
-                android:textSize="40sp" />
-
-            <ImageView
-                android:id="@+id/photoAction"
-                android:layout_width="50dp"
-
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginEnd="75dp"
-                android:onClick="photoAction"
-                android:src="@android:drawable/ic_menu_camera" />
-
+            </Spinner>
         </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+
+        <TextView
+            style="@style/listView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/photo"
+            android:textSize="40sp" />
+
+        <ImageView
+            android:id="@+id/photoAction"
+            android:layout_width="50dp"
+
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="25dp"
+            android:onClick="photoAction"
+            android:src="@android:drawable/ic_menu_camera" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="126dp"
+            android:src="@android:drawable/ic_menu_upload"
+            android:onClick="upload"/>
+
+    </RelativeLayout>
+
+    <WebView
+        android:layout_marginTop="10dp"
+        android:layout_width="200dp"
+        android:layout_height="290dp"
+        android:background="@color/listColor"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        android:id="@+id/photo">
+
+    </WebView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:layout_width="50dp"
@@ -111,7 +138,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="104dp"
-            android:src="@android:drawable/ic_menu_add" />
+            android:src="@android:drawable/ic_menu_add"
+            android:onClick="save"/>
 
         <ImageView
             android:layout_width="50dp"
@@ -123,5 +151,7 @@
     </RelativeLayout>
 
 
-
 </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

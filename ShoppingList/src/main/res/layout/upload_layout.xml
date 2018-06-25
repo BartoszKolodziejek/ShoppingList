@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/listColor">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_gravity="right"
+        android:id="@+id/collapse"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/editText"
+        android:hint="@string/add_url_hint"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/editTextColor"
+        android:textColorHint="@color/editTextColor"
+        android:textIsSelectable="true"
+        android:id="@+id/url"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        style="@style/popUpWindow"
+        android:text="@string/addItem"
+        android:id="@+id/add_item"/>
+
+</LinearLayout>

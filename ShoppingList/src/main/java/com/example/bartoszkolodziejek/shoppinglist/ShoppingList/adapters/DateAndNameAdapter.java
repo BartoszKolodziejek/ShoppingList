@@ -42,12 +42,18 @@ public class DateAndNameAdapter<T> extends ArrayAdapter {
     @Override
     public void add(@Nullable Object object) {
 
-        values.put(new Date(), object.toString());
+        values.put(new Date(), object);
         super.add(object);
     }
 
     public Object getItemByDate(Date date){
         return values.get(date);
+    }
+
+    @Nullable
+    @Override
+    public Object getItem(int position) {
+        return new ArrayList<>(values.values()).get(position);
     }
 
     @NonNull
